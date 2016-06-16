@@ -1,0 +1,16 @@
+[
+{
+  "modid": "openharvest",
+  "name": "Open Harvest",
+  "description": "A basic open-source right-click-to-harvest-crop mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["SBlectric"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
