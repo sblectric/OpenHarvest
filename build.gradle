@@ -14,7 +14,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.1.0"
+version = "1.2.0"
 group= "com.sblectric.openharvest" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "openharvest"
 
@@ -22,7 +22,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 minecraft {
-    version = "1.9.4-12.17.0.1976"
+    version = "1.10.2-12.18.1.2094"
     runDir = "run"
     mappings = "snapshot_20160518"
 }
