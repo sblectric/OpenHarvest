@@ -6,7 +6,7 @@ It supports any crop that functions like vanilla crops, and isn't limited to cro
 
 This mod doesn't even need to be installed on clients, it will work serverside-only.
 
-This branch is for the latest version of the mod.
+This branch is for Minecraft 1.9.0 support.
 
 This Open Source project (see [License](https://github.com/sblectric/OpenHarvest/blob/master/license.md)) is a mod for [Minecraft](http://www.minecraft.net/), a game by [Mojang AB](http://mojang.com/).
 
