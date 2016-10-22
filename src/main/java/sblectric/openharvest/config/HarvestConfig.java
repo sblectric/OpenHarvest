@@ -20,7 +20,10 @@ public class HarvestConfig {
 	public static List<String> modBlacklist;
 	public static List<String> blockBlacklist;
 	public static boolean doTreeChop;
+	public static boolean shiftMode;
+	public static int harvestSpeed;
 	public static int maxLogsAtOnce;
+	public static int maxLeavesAtOnce;
 	public static List<String> modLogBlacklist;
 	public static List<String> logBlacklist;
  	
@@ -36,8 +39,14 @@ public class HarvestConfig {
 		// logs
 		doTreeChop = config.getBoolean("Treecapitator mode", "logs", true, 
 				"Whether or not to enable Veinminer-esque log breaking mode");
+		shiftMode = config.getBoolean("Sneaking mode", "logs", true,
+				"If false, only enable Treecapitator mode when the player *isn't* sneaking. If true, do the opposite");
+		harvestSpeed = config.getInt("Treecapitator speed", "logs", 1, 0, 5,
+				"When treecapitating, the player is given Mining Fatigue with this modifier");
 		maxLogsAtOnce = config.getInt("Maximum logs", "logs", 256, 1, Integer.MAX_VALUE, 
 				"Maximum amount of logs to chop at once");
+		maxLeavesAtOnce = config.getInt("Maximum leaves", "logs", 64, 1, Integer.MAX_VALUE, 
+				"Maximum amount of leaves to search through at once");
 		modLogBlacklist = Arrays.asList(config.getStringList("Mod Blacklist", "logs", new String[0], 
 				"Mods (by mod id) with logs that " + RefStrings.NAME + " should ignore"));
 		logBlacklist = Arrays.asList(config.getStringList("Log Blacklist", "logs", new String[0], 
