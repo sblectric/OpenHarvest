@@ -39,7 +39,7 @@ public class HarvestEvents {
 	@SubscribeEvent
 	public void onHarvestCrops(PlayerInteractEvent.RightClickBlock event) {
 		World world = event.getWorld();
-		if(world.isRemote) return; // do nothing on client thread
+		if(world.isRemote || !HarvestConfig.doPlantHarvest) return; // do nothing on client thread
 
 		BlockPos pos = event.getPos();
 		IBlockState state = world.getBlockState(pos);
@@ -160,8 +160,8 @@ public class HarvestEvents {
 		// don't execute anything more with a broken tool
 		if(tool == null || tool.stackSize <= 0) return;
 
-		// don't exceed the max amounts set in the config
-		if(blocks > HarvestConfig.maxLogsAtOnce || leaves > HarvestConfig.maxLeavesAtOnce) return;
+		// don't exceed the max logs set in the config
+		if(blocks > HarvestConfig.maxLogsAtOnce) return;
 
 		// mark this position as searched
 		setBlockInvalid(pos);
@@ -208,7 +208,8 @@ public class HarvestEvents {
 	/** Can the block be used as a valid position for further searches? (Similar logs and leaf types are considered) */
 	private boolean isBlockSearchable(World world, BlockPos pos, IBlockState stateCompare) {
 		IBlockState currentState = world.getBlockState(pos);
-		return isBlockValid(pos) && (isBlockHarvestable(world, pos, stateCompare) || currentState.getBlock().isLeaves(currentState, world, pos));
+		return isBlockValid(pos) && (isBlockHarvestable(world, pos, stateCompare) || 
+				(currentState.getBlock().isLeaves(currentState, world, pos) && leaves <= HarvestConfig.maxLeavesAtOnce));
 	}
 
 	/** Can the block be harvested and use axe durability? (Only log block matches are valid) */

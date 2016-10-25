@@ -17,6 +17,7 @@ public class HarvestConfig {
 		getConfig();
 	}
 	
+	public static boolean doPlantHarvest;
 	public static List<String> modBlacklist;
 	public static List<String> blockBlacklist;
 	public static boolean doTreeChop;
@@ -31,6 +32,8 @@ public class HarvestConfig {
 		config.load();
 		
 		// plants
+		doPlantHarvest = config.getBoolean("Harvest mode", "logs", true, 
+				"Whether or not to enable right-click to harvest crops");
 		modBlacklist = Arrays.asList(config.getStringList("Mod Blacklist", "plants", new String[0], 
 				"Mods (by mod id) with plants that " + RefStrings.NAME + " should ignore"));
 		blockBlacklist = Arrays.asList(config.getStringList("Plant Blacklist", "plants", new String[0], 
